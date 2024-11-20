@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container" id="login-container">
+        <!-- Logo -->
+        <img src="logo.png" alt="Logo da Empresa" class="logo">
+        <h1>Backlog CSL</h1>
+        <form onsubmit="handleLogin(event)">
+            <div class="input-group">
+                <label for="username">Usuário</label>
+                <input type="text" id="username" placeholder="Digite seu usuário" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="Digite sua senha" required>
+            </div>
+            <button type="submit" class="login-btn">Entrar</button>
+        </form>
+    </div>
+
+    <div class="menu-container" id="menu-container" style="display: none;">
+        <!-- Logo -->
+        <img src="logo.png" alt="Logo da Empresa" class="logo">
+        <h1>Backlog CSL</h1>
+        <h2>Bem-vindo(a)!</h2>
+        <div class="menu-options">
+            <button class="menu-btn" onclick="showConfig()">MANUTENÇÃO</button>
+            <button class="menu-btn">PROJETOS</button>
+            <button class="menu-btn">FAC</button>
+            <button class="menu-btn">DASHBOARD</button>
+            <button class="menu-btn" onclick="showSettings()">CONFIGURAÇÕES</button>
+        </div>
+    </div>
+
+    <!-- Tela de Configurações -->
+    <div class="settings-container" id="settings-container" style="display: none;">
+        <h2>Configurações</h2>
+        <div class="settings-options">
+            <button class="menu-btn" onclick="showUsers()">USUÁRIOS</button>
+            <button class="menu-btn">INFORMAÇÕES DO SISTEMA</button>
+            <button class="menu-btn">EDIÇÃO DE TELAS</button>
+            <button class="menu-btn" onclick="goBackToMenu()">Voltar</button>
+        </div>
+    </div>
+
+    <!-- Tela de Usuários -->
+    <div class="users-container" id="users-container" style="display: none;">
+        <h2>Usuários Cadastrados</h2>
+        <ul id="user-list">
+            <!-- Lista de usuários -->
+        </ul>
+        <button class="menu-btn" onclick="addUser()">Adicionar Usuário</button>
+        <button class="menu-btn" onclick="goBackToSettings()">Voltar</button>
+    </div>
+
+    <!-- Tela de Alteração de Senha -->
+    <div class="change-password-container" id="change-password-container" style="display: none;">
+        <h2>Alteração de Senha</h2>
+        <form onsubmit="handlePasswordChange(event)">
+            <div class="input-group">
+                <label for="new-password">Nova Senha</label>
+                <input type="password" id="new-password" placeholder="Digite sua nova senha" required>
+            </div>
+            <div class="input-group">
+                <label for="confirm-password">Confirmar Senha</label>
+                <input type="password" id="confirm-password" placeholder="Confirme sua nova senha" required>
+            </div>
+            <button type="submit" class="login-btn">Alterar Senha</button>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
